@@ -3,6 +3,7 @@ services:
     name: n8n
     env: docker
     plan: free
+    dockerCommand: start
     envVars:
       - key: N8N_HOST
         value: n8n-ocse.onrender.com
