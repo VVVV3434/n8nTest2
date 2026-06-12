@@ -1,7 +1,11 @@
-FROM n8nio/n8n:latest
+FROM node:20-alpine
+
+RUN npm install -g n8n@1.99.1
 
 ENV N8N_PORT=10000
 ENV N8N_LISTEN_ADDRESS=0.0.0.0
 ENV PORT=10000
 
 EXPOSE 10000
+
+CMD ["n8n", "start"]
