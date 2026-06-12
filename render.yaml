@@ -3,17 +3,28 @@ services:
     name: n8n
     env: docker
     plan: free
-    autoDeploy: true
+    dockerCommand: n8n start
     envVars:
-    
+      - key: N8N_HOST
+        value: n8n-ocse.onrender.com
+
+      - key: N8N_PROTOCOL
+        value: https
+
+      - key: WEBHOOK_URL
+        value: https://n8n-ocse.onrender.com/
+
+      - key: N8N_EDITOR_BASE_URL
+        value: https://n8n-ocse.onrender.com/
+
       - key: N8N_PORT
         value: 10000
-      - key: WEBHOOK_URL
-        sync: false
-      - key: N8N_BASIC_AUTH_ACTIVE
-        value: "true"
-      - key: N8N_BASIC_AUTH_USER
-        value: admin
-      - key: N8N_BASIC_AUTH_PASSWORD
-        sync: false
-    dockerCommand: n8n start
+
+      - key: PORT
+        value: 10000
+
+      - key: GENERIC_TIMEZONE
+        value: Europe/Belgrade
+
+      - key: N8N_RUNNERS_ENABLED
+        value: "false"
